@@ -12,7 +12,7 @@ ACTION_LOOKUP = {
 	# less consistantly classfified 
 	13 : "Volume Up (gloss: Loud)",
 	68 : "Volume Down (gloss: Down)",
-
+	15 : "Mute",
 	# not totally working
 	4 : "Quit (gloss: Cancel)", 
 
@@ -52,6 +52,8 @@ class LogicHandler:
 		"""
 
 		cur_action = self.input_state
+		if cur_action == "Mute":
+			control_functions.mute()
 
 		if cur_action == "Take Picture":
 			control_functions.take_picture()

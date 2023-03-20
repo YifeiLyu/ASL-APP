@@ -223,6 +223,7 @@ def train(args):
                 # tested_model = VisionTransformer(dim=2, mlp_dim=108, num_classes=100, depth=12, heads=8)
                 tested_model.load_state_dict(torch.load("out-checkpoints/" + args.experiment_name + "/checkpoint_" + checkpoint_id + "_" + str(i) + ".pth"))
                 tested_model.train(False)
+                tested_model.to(device)
                 _, _, eval_acc = evaluate(tested_model, eval_loader, device, print_stats=True)
 
                 if eval_acc > top_result:

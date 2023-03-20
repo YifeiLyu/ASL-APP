@@ -131,6 +131,8 @@ def get_speaker_output_volume():
 
     return 0 if muted else volume
 
+def mute():
+    osascript.osascript("set volume output volume 0")
 
 def cancel():
 

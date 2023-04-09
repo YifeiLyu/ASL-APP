@@ -138,6 +138,32 @@ def cancel():
 
     sys.exit()
 
+# Developing 04/08/2023
+
+def open_finder():
+    osascript.osascript('tell app "Finder" to make new Finder window')
+
+def open_app():
+    osascript.osascript('tell app "Safari" to activate')
+
+def close_app():
+    osascript.osascript('quit app "safari.app"')
+
+def dark_mode():
+    osascript.osascript('tell application "System Events" to tell appearance preferences to set dark mode to not dark mode')
+
+def clean_trash():
+    osascript.osascript('tell application "Finder" to empty trash')
+
+def display_text():
+    osascript.osascript('tell app "System Events" to display dialog "Hello, world!"')
+
+def write_text():
+    osascript.osascript('tell application "TextEdit" to activate')
+    osascript.osascript('tell application "TextEdit" to make new document')
+    osascript.osascript('tell application "System Events" to keystroke "I need support!"')
+
+
 ##########################################################################################################################################
 ########### FUNCTIONS THAT WE DO NOT YET HAVE A COMMAND MAPPED TO #######################################################################
 ##########################################################################################################################################

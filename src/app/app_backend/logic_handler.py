@@ -3,16 +3,28 @@ import control_functions
 from control_functions import *
 
 ACTION_LOOKUP = {
+	# Unadded yet:
+
+	#15: "write_text",
+	27: "close_app",
+	# open_finder
+	# open_app
+	# close_app
+	# dark_mode
+	# clean_trash
+	# display_text
+	# write_text
+
 	# Most consistantly classified funcs:
 	22: "Check Weather (gloss: Weather)" , 
 	85 : "Open Browser (gloss: Open)",
 	5 : "Open Twitter (gloss: Bird)",
-	66 : "Sleep (gloss: Dark)",
+	66 : "Dark Mode (gloss: Dark)",
 	
 	# less consistantly classfified 
 	13 : "Volume Up (gloss: Loud)",
 	68 : "Volume Down (gloss: Down)",
-	15 : "Mute",
+	# 15 : "Mute",
 	# not totally working
 	4 : "Quit (gloss: Cancel)", 
 
@@ -52,6 +64,7 @@ class LogicHandler:
 		"""
 
 		cur_action = self.input_state
+		"""
 		if cur_action == "Mute":
 			control_functions.mute()
 
@@ -70,8 +83,8 @@ class LogicHandler:
 		if cur_action == "Open Twitter (gloss: Bird)":
 			control_functions.open_twitter()
 		
-		if cur_action == "Sleep (gloss: Dark)":
-			control_functions.sleep()
+		if cur_action == "Dark Mode (gloss: Dark)":
+			control_functions.dark_mode()
 
 		if cur_action == "Volume Up / Loud":
 			control_functions.volume(direction="UP")
@@ -81,6 +94,29 @@ class LogicHandler:
 
 		if cur_action == "Quit (gloss: Cancel)":
 			control_functions.cancel()
+        """
+		# unadded yet:
+
+		if cur_action == "open_finder":
+			control_functions.open_finder()
+
+		if cur_action == "open_app":
+			control_functions.open_app()
+		
+		if cur_action == "close_app":
+			control_functions.close_app()
+
+		if cur_action == "dark_mode":
+			control_functions.dark_mode()
+		
+		if cur_action == "clean_trash":
+			control_functions.clean_trash()
+
+		if cur_action == "display_text":
+			control_functions.display_text()
+		
+		if cur_action == "write_text":
+			control_functions.write_text()
 
 		action_log.append(cur_action)
 	

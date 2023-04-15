@@ -50,6 +50,18 @@ from pynput.mouse import Controller as Mouse_Controller
 
 
 
+# bird, no, yes, help, book, movie, quiet, restaurant, medicine, newspaper, shop, music, train, weather, email, alarm, airplane, calendar, hotel, theater, camera, grocery, store, emergency, bank
+
+# no, yes, restaurant, medicine, newspaper, shop, music, train, weather, email, alarm, airplane, calendar, hotel, theater, camera, grocery, store, emergency, bank
+
+def movie():
+    webbrowser.open_new("https://www.netflix.com/browse/genre/34399")
+
+def book():
+    webbrowser.open_new("https://read.amazon.com/landing")
+
+def help():
+    webbrowser.open_new("https://docs.google.com/document/d/1RFXxQReQgHmkk0qMInJ5DZc2wxQEcU95MnX2F63UzSM/edit")
 
 def open_twitter():
     """Opens twitter in default browser"""

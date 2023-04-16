@@ -50,6 +50,18 @@ from pynput.mouse import Controller as Mouse_Controller
 
 
 
+# bird, no, yes, help, book, movie, quiet, restaurant, medicine, newspaper, shop, music, train, weather, email, alarm, airplane, calendar, hotel, theater, camera, grocery, store, emergency, bank
+
+# no, yes, restaurant, medicine, newspaper, shop, music, train, weather, email, alarm, airplane, calendar, hotel, theater, camera, grocery, store, emergency, bank
+
+def movie():
+    webbrowser.open_new("https://www.netflix.com/browse/genre/34399")
+
+def book():
+    webbrowser.open_new("https://read.amazon.com/landing")
+
+def help():
+    webbrowser.open_new("https://docs.google.com/document/d/1RFXxQReQgHmkk0qMInJ5DZc2wxQEcU95MnX2F63UzSM/edit")
 
 def open_twitter():
     """Opens twitter in default browser"""
@@ -75,8 +87,17 @@ def check_weather():
 def sleep():
     "makes the computer go to sleep"
 
-    os.system("pmset sleepnow")
+    if (platform.system() == 'Darwin'):
+        os.system("pmset sleepnow")
 
+    elif (platform.system() == 'Windows'):
+        print("Command not implemented for Windows")
+        raise NotImplementedError
+        
+    elif (platform.system() == 'Linux'):
+        os.system("systemctl suspend")
+    else:
+        warnings.warn("ERROR: OS cannot be determined")
 
 def volume(direction="UP"):
    
@@ -100,9 +121,38 @@ def volume(direction="UP"):
         raise NotImplementedError
 
     elif (platform.system() == 'Windows'):
-        print("Command not implemented for Windows")
-        raise NotImplementedError
-
+        # print("Command not implemented for Windows")
+        # raise NotImplementedError
+        devices = AudioUtilities.GetSpeakers()
+        interface = devices.Activate(
+            IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+        volume = cast(interface, POINTER(IAudioEndpointVolume))
+        curr_volume = volume.GetMasterVolumeLevel()
+        if direction == "UP":
+            if curr_volume < -34:
+                curr_volume = -34
+            elif curr_volume <= -30:
+                curr_volume += 8
+            elif curr_volume <= -18:
+                curr_volume += 4
+            elif curr_volume <= -8:
+                curr_volume += 2
+            else:
+                curr_volume += 1
+        elif direction == "DOWN":
+            if curr_volume >= -6:
+                curr_volume -= 1
+            elif curr_volume >= -14:
+                curr_volume -= 2
+            elif curr_volume >= -22:
+                curr_volume -= 4
+            elif curr_volume >= -34:
+                curr_volume -= 8
+            else:
+                curr_volume = -65
+        else:
+            raise Exception("Specify 'UP' or 'DOWN' direction in logic handler function call")
+        volume.SetMasterVolumeLevel(curr_volume, None)
     else:
         warnings.warn("ERROR: OS cannot be determined")
 
@@ -132,7 +182,22 @@ def get_speaker_output_volume():
     return 0 if muted else volume
 
 def mute():
-    osascript.osascript("set volume output volume 0")
+
+    if (platform.system() == 'Darwin'):
+        osascript.osascript("set volume output volume 0")
+
+    elif (platform.system() == 'Windows'):
+        devices = AudioUtilities.GetSpeakers()
+        interface = devices.Activate(
+            IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+        volume = cast(interface, POINTER(IAudioEndpointVolume))
+        volume.SetMute(1, None)
+
+    elif (platform.system() == 'Linux'):
+        print("Command not implemented for Linux")
+        raise NotImplementedError
+    else:
+        warnings.warn("ERROR: OS cannot be determined")
 
 def cancel():
 

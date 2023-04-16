@@ -165,7 +165,7 @@ def get_model(model_name, use_cached = True):
     setting up and istance of the SPOTR model 
     """
 
-    num_classes = 100
+    num_classes = 121
     hidden_dim = 108
 
     if (use_cached):
@@ -221,7 +221,9 @@ def create_training_data(data, label):
 
     label_lookup_new = {"computer": 0, "want": 1, "play": 2, "clothes": 3, "tell": 4, "now": 5, "deaf": 6, "many": 7, "before": 8, "pink": 9, "give": 10, "short": 11, "graduate": 12, "cool": 13, "son": 14, "kiss": 15, "forget": 16, "hat": 17, "school": 18, "purple": 19, "drink": 20, "apple": 21, "table": 22, "orange": 23, "thursday": 24, "basketball": 25, "secretary": 26, "go": 27, "corn": 28, "fish": 29, "finish": 30, "book": 31, "yes": 32, "white": 33, "eat": 34, "cook": 35, "paint": 36, "tall": 37, "enjoy": 38, "meet": 39, "brown": 40, "time": 41, "woman": 42, "cousin": 43, "fine": 44, "same": 45, "yellow": 46, "wife": 47, "family": 48, "all": 49, "help": 50, "wrong": 51, "walk": 52, "pizza": 53, "decide": 54, "wait": 55, "no": 56, "hearing": 57, "but": 58, "dark": 59, "can": 60, "man": 61, "bird": 62, "bed": 63, "doctor": 64, "black": 65, "right": 66, "shirt": 67, "like": 68, "cow": 69, "medicine": 70, "jacket": 71, "study": 72, "cheat": 73, "blue": 74, "mother": 75, "candy": 76, "language": 77, "year": 78, "thin": 79, "what": 80, "birthday": 81, "chair": 82, "accident": 83, "letter": 84, "thanksgiving": 85, "who": 86, "need": 87, "how": 88, "africa": 89, "dog": 90, "later": 91, "bowling": 92, "color": 93, "paper": 94, "change": 95, "hot": 96, "last": 97, "dance": 98, "work": 99}
 
-    label_index = label_lookup[label]
+    label_lookup_121 = {"balloon": 0, "h": 1, "owe": 2, "pause": 3, "cancel": 4, "bird": 5, "violin": 6, "couch": 7, "quiet": 8, "manage": 9, "man": 10, "which": 11, "aunt": 12, "loud": 13, "end": 14, "wonder": 15, "waterfall": 16, "sketch": 17, "welcome": 18, "add": 19, "close": 20, "sign language": 21, "weather": 22, "bowl": 23, "objective": 24, "four": 25, "punish": 26, "left": 27, "document": 28, "two": 29, "aim": 30, "search": 31, "enter": 32, "right": 33, "siren": 34, "piece": 35, "tent": 36, "letter": 37, "family": 38, "scan": 39, "middle": 40, "hearing": 41, "play": 42, "seven": 43, "remove": 44, "keyboard": 45, "superman": 46, "click": 47, "ten": 48, "pride": 49, "boy": 50, "sound": 51, "message": 52, "boyfriend": 53, "every monday": 54, "drag": 55, "nine": 56, "hello": 57, "start": 58, "text": 59, "reduce": 60, "dream": 61, "bike": 62, "five": 63, "eight": 64, "cent": 65, "dark": 66, "peach": 67, "down": 68, "responsible": 69, "before": 70, "forever": 71, "later": 72, "feedback": 73, "autumn": 74, "six": 75, "bottom": 76, "tranquil": 77, "lazy": 78, "tale": 79, "spoon": 80, "golf": 81, "more": 82, "key": 83, "snake": 84, "open": 85, "bright": 86, "sour": 87, "enormous": 88, "lady": 89, "one": 90, "three": 91, "calculator": 92, "network": 93, "abdomen": 94, "meat": 95, "up": 96, "top": 97, "arizona": 98, "leak": 99, "no": 100, "yes": 101, "help": 102, "book": 103, "movie": 104, "restaurant": 105, "medicine": 106, "newspaper": 107, "shop": 108, "music": 109, "train": 110, "email": 111, "alarm": 112, "airplane": 113, "calendar": 114, "hotel": 115, "theater": 116, "camera": 117, "grocery store": 118, "emergency": 119, "bank": 120}
+
+    label_index = label_lookup_121[label]
 
     #store the result of features into file1.csv every 120 frames
     new_row['label'] = label_index
@@ -480,7 +482,7 @@ cors = CORS(app)
 features = []
 per_frame_feature = []
 
-model = get_model("checkpoint_t_9")
+model = get_model("checkpoint_t_3_121")
 prev_gloss = None
 
 create = False

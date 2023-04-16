@@ -94,7 +94,7 @@ class LogicHandler:
 
 		if cur_action == "Quit (gloss: Cancel)":
 			control_functions.cancel()
-        """
+        
 		# unadded yet:
 
 		if cur_action == "open_finder":
@@ -117,7 +117,7 @@ class LogicHandler:
 		
 		if cur_action == "write_text":
 			control_functions.write_text()
-
+		"""
 		action_log.append(cur_action)
 	
 	def get_commands(self):

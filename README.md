@@ -1,5 +1,5 @@
-# ASL-APP
-
+# Magic Hand: Sign Language for PC Control
+![Concept image of using this app](https://github.com/YifeiLyu/ASL-APP/blob/main/src/app/intro.jpg)
 ## Step 1: 
 Install all requirments:
 ```shell

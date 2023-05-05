@@ -6,31 +6,35 @@ ACTION_LOOKUP = {
 	# Unadded yet:
 
 	#15: "write_text",
-	27: "close_app",
+	# 27: "close_app",
 	# open_finder
 	# open_app
 	# close_app
 	# dark_mode
 	# clean_trash
-	# display_text
+	8: 'display_text (sign: medicine)',
+	5: 'open_netflix (sign: movie)',
 	# write_text
+	18: 'open_booking (sign: hotel)',
+	19: 'open_youtube (sign: theater)',
+	14: 'open_email (sign: email)',
 
 	# Most consistantly classified funcs:
-	22: "Check Weather (gloss: Weather)" , 
-	85 : "Open Browser (gloss: Open)",
-	5 : "Open Twitter (gloss: Bird)",
-	66 : "Dark Mode (gloss: Dark)",
+	# 22: "Check Weather (gloss: Weather)" , 
+	# 0 : "Open Browser (gloss: Open)",
+	# 0 : "Open Twitter (sign: Bird)",
+	# 66 : "Dark Mode (gloss: Dark)",
 	
 	# less consistantly classfified 
-	13 : "Volume Up (gloss: Loud)",
-	68 : "Volume Down (gloss: Down)",
-	# 15 : "Mute",
+	# 13 : "Volume Up (gloss: Loud)",
+	# 68 : "Volume Down (gloss: Down)",
+	# 6 : "Mute (sign: quiet)",
 	# not totally working
-	4 : "Quit (gloss: Cancel)", 
+	# 4 : "Quit (gloss: Cancel)", 
 
 	# no mapping function yet: 
-	101 : "Take Screenshot", 
-	101 : "Take Picture",
+	20 : "Take Screenshot (sign: camera)", 
+	# 101 : "Take Picture",
 }
 
 class LogicHandler:
@@ -64,9 +68,21 @@ class LogicHandler:
 		"""
 
 		cur_action = self.input_state
-		"""
-		if cur_action == "Mute":
+		
+		if cur_action == "Mute (sign: quiet)":
 			control_functions.mute()
+
+		if cur_action == 'open_email (sign: email)':
+			control_functions.open_email()
+
+		if cur_action == "open_youtube (sign: theater)":
+			control_functions.open_youtube()
+
+		if cur_action == "open_netflix (sign: movie)":
+			control_functions.open_netflix()
+		
+		if cur_action == "open_booking (sign: hotel)":
+			control_functions.open_booking()
 
 		if cur_action == "Take Picture":
 			control_functions.take_picture()
@@ -80,7 +96,7 @@ class LogicHandler:
 		if cur_action == "Open Browser (gloss: Open)":
 			control_functions.open_browser()
 
-		if cur_action == "Open Twitter (gloss: Bird)":
+		if cur_action == "Open Twitter (sign: Bird)":
 			control_functions.open_twitter()
 		
 		if cur_action == "Dark Mode (gloss: Dark)":
@@ -112,12 +128,16 @@ class LogicHandler:
 		if cur_action == "clean_trash":
 			control_functions.clean_trash()
 
-		if cur_action == "display_text":
+		if cur_action == "display_text (sign: medicine)":
 			control_functions.display_text()
 		
 		if cur_action == "write_text":
 			control_functions.write_text()
-		"""
+		
+		if cur_action == "Take Screenshot (sign: camera)":
+			control_functions.screenshot()
+		
+		
 		action_log.append(cur_action)
 	
 	def get_commands(self):

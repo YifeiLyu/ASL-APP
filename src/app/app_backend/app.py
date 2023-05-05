@@ -165,7 +165,7 @@ def get_model(model_name, use_cached = True):
     setting up and istance of the SPOTR model 
     """
 
-    num_classes = 121
+    num_classes = 24
     hidden_dim = 108
 
     if (use_cached):
@@ -223,7 +223,9 @@ def create_training_data(data, label):
 
     label_lookup_121 = {"balloon": 0, "h": 1, "owe": 2, "pause": 3, "cancel": 4, "bird": 5, "violin": 6, "couch": 7, "quiet": 8, "manage": 9, "man": 10, "which": 11, "aunt": 12, "loud": 13, "end": 14, "wonder": 15, "waterfall": 16, "sketch": 17, "welcome": 18, "add": 19, "close": 20, "sign language": 21, "weather": 22, "bowl": 23, "objective": 24, "four": 25, "punish": 26, "left": 27, "document": 28, "two": 29, "aim": 30, "search": 31, "enter": 32, "right": 33, "siren": 34, "piece": 35, "tent": 36, "letter": 37, "family": 38, "scan": 39, "middle": 40, "hearing": 41, "play": 42, "seven": 43, "remove": 44, "keyboard": 45, "superman": 46, "click": 47, "ten": 48, "pride": 49, "boy": 50, "sound": 51, "message": 52, "boyfriend": 53, "every monday": 54, "drag": 55, "nine": 56, "hello": 57, "start": 58, "text": 59, "reduce": 60, "dream": 61, "bike": 62, "five": 63, "eight": 64, "cent": 65, "dark": 66, "peach": 67, "down": 68, "responsible": 69, "before": 70, "forever": 71, "later": 72, "feedback": 73, "autumn": 74, "six": 75, "bottom": 76, "tranquil": 77, "lazy": 78, "tale": 79, "spoon": 80, "golf": 81, "more": 82, "key": 83, "snake": 84, "open": 85, "bright": 86, "sour": 87, "enormous": 88, "lady": 89, "one": 90, "three": 91, "calculator": 92, "network": 93, "abdomen": 94, "meat": 95, "up": 96, "top": 97, "arizona": 98, "leak": 99, "no": 100, "yes": 101, "help": 102, "book": 103, "movie": 104, "restaurant": 105, "medicine": 106, "newspaper": 107, "shop": 108, "music": 109, "train": 110, "email": 111, "alarm": 112, "airplane": 113, "calendar": 114, "hotel": 115, "theater": 116, "camera": 117, "grocery store": 118, "emergency": 119, "bank": 120}
 
-    label_index = label_lookup_121[label]
+    label_lookup_24 ={"bird": 0, "no": 1, "yes": 2, "help": 3, "book": 4, "movie": 5, "quiet": 6, "restaurant": 7, "medicine": 8, "newspaper": 9, "shop": 10, "music": 11, "train": 12, "weather": 13, "email": 14, "alarm": 15, "airplane": 16, "calendar": 17, "hotel": 18, "theater": 19, "camera": 20, "grocery store": 21, "emergency": 22, "bank": 23}
+
+    label_index = label_lookup_24[label]
 
     #store the result of features into file1.csv every 120 frames
     new_row['label'] = label_index
@@ -482,7 +484,7 @@ cors = CORS(app)
 features = []
 per_frame_feature = []
 
-model = get_model("checkpoint_t_3_121")
+model = get_model("checkpoint_v_10_24")
 prev_gloss = None
 
 create = False

@@ -75,6 +75,30 @@ def open_browser():
     url = 'https://www.google.com/'
     webbrowser.open_new(url)
 
+def open_netflix():
+    """Opens google in default browser"""
+
+    url = 'https://www.netflix.com/browse/genre/34399'
+    webbrowser.open_new(url)
+
+def open_booking():
+    """Opens youtube in default browser"""
+
+    url = 'https://www.booking.com/'
+    webbrowser.open_new(url)
+
+def open_email():
+    """Opens youtube in default browser"""
+
+    url = 'https://www.gmail.com/'
+    webbrowser.open_new(url)
+
+def open_youtube():
+    """Opens youtube in default browser"""
+
+    url = 'https://www.youtube.com/'
+    webbrowser.open_new(url)
+
 def check_weather():
     """
     Opens up google weather 
@@ -221,7 +245,7 @@ def clean_trash():
     osascript.osascript('tell application "Finder" to empty trash')
 
 def display_text():
-    osascript.osascript('tell app "System Events" to display dialog "Hello, world!"')
+    osascript.osascript('tell app "System Events" to display dialog "Please give me the medicine!"')
 
 def write_text():
     osascript.osascript('tell application "TextEdit" to activate')

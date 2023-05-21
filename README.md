@@ -1,7 +1,7 @@
 # Magic Hand: Sign Language for PC Control
 
 ## Project Brief: 
-![Project Brief](https://github.com/YifeiLyu/ASL-APP/blob/main/src/app/ProjectBrief_2023.jpg)
+<img src="https://github.com/YifeiLyu/ASL-APP/blob/main/src/app/ProjectBrief_2023.jpg" width="400">
 
 ## Demo videos: 
 https://youtu.be/h5GE0ikvlkU
